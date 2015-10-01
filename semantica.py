@@ -52,7 +52,6 @@ class Semantica():
 
     def get_tipo(self, no):
         return no.leaf[0]
-    ##########Intrução##########
 
     def instrucao(self, no):
         # declaracao
@@ -135,8 +134,7 @@ class Semantica():
         else:
             return 0
 
-    ############################
-
+    
     def get_op(self, no):
         return no.leaf[0]
 
