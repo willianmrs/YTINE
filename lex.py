@@ -36,7 +36,6 @@ tokens = [
 
 
 # Expressões regulares simples.
-
 t_MAIS = r'\+'
 t_MENOS = r'-'
 t_VEZES = r'\*'
@@ -49,17 +48,15 @@ t_FECHAPARENTES = r'\)'
 t_PONTOEVIRGULA = r';'
 t_RECEBE = r':='
 
+
 # Expressões regulares mais complexas
-
-
 def t_ID(t):
     r'[a-zA-Zà-ú][0-9a-zà-úA-Z]*'
     t.type = reservadas.get(t.value, 'ID')
     return t
 
+
 # Define expressão regular para numeros de ponto flutuante
-
-
 def t_N_FLUTUANTE(t):
     r'[0-9]+(\.[0-9]+)(e(\+|\-)?(\d+))?'
     # t.type = "NUMERO"
@@ -83,20 +80,19 @@ def t_newline(t):
 # A string containing ignored characters (spaces and tabs)
 t_ignore = ' \t'
 
+
 # Ignorar Comentarios
-
-
 def t_COMMENT(t):
     r'{[^\{^\}]*}'
     pass
 
+
 # Erro
-
-
 def t_error(t):
     print("Caracter Ilegal '%s', linha %d" % (t.value[0], t.lineno))
     print(type(t.value))
     t.lexer.skip(1)
+
 
 # Build the lexer
 lexer = lex.lex()
